@@ -340,6 +340,11 @@ select {
   transition: 0.3s scale ease, 0.3s opacity ease-out;
 }
 
+.large-button:hover::before {
+  scale: 1.5;
+  opacity: 1;
+}
+
 @media (max-width: 35rem) {
   .large-button {
     width: 12rem;
