@@ -1,4 +1,4 @@
-# spaceRO
+# SPACERO
 
 ![Design preview](/home-page-prev.jpg)
 
