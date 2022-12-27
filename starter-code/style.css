@@ -1,0 +1,391 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+  /* colors */
+  --clr-dark: 230 35% 7%;
+  --clr-accent: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+
+  /* font-sizes mobile */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font family */
+  --ff-bellefair: "Bellefair", serif;
+  --ff-barlow-cond: "Barlow Condensed", sans-serif;
+  --ff-barlow-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    /* font-sizes tablet */
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes desktop */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* set up the body */
+body {
+  font-family: var(--ff-barlow-normal);
+  font-size: var(--fs-400);
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-dark));
+  line-height: 1.5;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: minmax(200px, auto);
+  height: 10rem;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* General */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, 2rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 50rem;
+}
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1.5rem;
+  row-gap: 5rem;
+}
+
+.grid-container * {
+  max-width: 60ch;
+}
+
+.grid-container > *:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 45rem) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(auto, 33rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+    justify-content: flex-end;
+    align-items: end;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 30vh);
+    align-items: end;
+  }
+}
+
+.sr-only {
+  /*  properties are for screen readers */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.d-block {
+  display: block;
+}
+
+/* Colors */
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+.text-accent {
+  color: hsl(var(--clr-accent));
+}
+
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+.bg-accent {
+  background-color: hsl(var(--clr-accent));
+}
+
+/* Typography */
+.ff-bellefair {
+  font-family: var(--ff-bellefair);
+}
+.ff-barlow-cond {
+  font-family: var(--ff-barlow-cond);
+}
+.ff-barlow-normal {
+  font-family: var(--ff-barlow-normal);
+}
+
+.letter-spaceing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spaceing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spaceing-3 {
+  letter-spacing: 2.35px;
+}
+.letter-spaceing-0 {
+  letter-spacing: 0;
+}
+
+/* big bold = big font size */
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.text-justify {
+  text-align: justify;
+}
+.line-height-32 {
+  line-height: 32px;
+}
+
+/* ------------------- */
+/* Components          */
+/* ------------------- */
+
+.primary-navigation {
+  list-style: none;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a span {
+  margin-right: 0.4rem;
+  font-weight: 600;
+}
+
+.underline-indicators > * {
+  cursor: pointer;
+  padding: 1rem 0;
+  border-bottom: 2px solid hsl(var(--clr-white), 0);
+  transition: 0.3s border-color ease-in-out;
+}
+
+.underline-indicators > .active {
+  border-bottom: 2px solid hsl(var(--clr-white), 1);
+}
+
+.underline-indicators > *:hover:not(.active),
+.underline-indicators > *:focus:not(.active) {
+  border-color: hsl(var(--clr-white), 0.5);
+}
+
+.large-button {
+  font-size: 2rem;
+  background-color: hsl(var(--clr-white));
+  text-decoration: none;
+  display: grid;
+  padding: 0 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  place-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.large-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: hsl(var(--clr-white), 0.15);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: 0.3s scale ease, 0.3s opacity ease-out;
+}
+
+.large-button:hover::before {
+  scale: 1.5;
+  opacity: 1;
+}
+
+@media (max-width: 35rem) {
+  .large-button {
+    width: 12rem;
+    font-size: 20px;
+  }
+}
+
+/* ------------------- */
+/* Header Section      */
+/* ------------------- */
+
+header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo > img {
+  width: auto;
+  height: auto;
+}
+
+/* ------------------------- */
+/* Page specific background  */
+/* ------------------------- */
+body {
+  background-size: cover;
+  background-position: bottom center; /* allways will be visible the bottom center part of the image + the bg-size is set to cover */
+}
+
+.home {
+  background-image: url(assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .home {
+    background-position: center center;
+    background-image: url(/starter-code/assets/home/background-home-tablet.jpg);
+  }
+}
+@media (min-width: 45rem) {
+  .home {
+    background-image: url(/starter-code/assets/home/background-home-desktop.jpg);
+  }
+}
