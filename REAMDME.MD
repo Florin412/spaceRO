@@ -170,7 +170,7 @@ OBS: daca trebuie sa faci o clasa care faci un lucru, doar un singur lucru, atun
 		-> clamp(5rem, 8vw + 1rem, 9rem) //pt font size responsive
 
 
-#### Adding the background images
+### Adding the background images
 	-> va aparea in partea cea mai de jos din style.css
 /* ------------------------- */
 /* Page specific background  */
@@ -196,3 +196,10 @@ body {
     background-image: url(/starter-code/assets/home/background-home-desktop.jpg);
   }
 }
+
+============================================================
+## Pasul 3: NAVIGATION MENU
+============================================================
+
+### padding-block: 3rem;   == padding-top: 3rem  && padding-bottom: 3rem;
+### padding-inline: 2rem  === padding-left: 2rem && padding-right: 2rem;
