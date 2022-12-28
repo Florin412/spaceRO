@@ -22,6 +22,8 @@
     <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css" />
 
+    <script src="/index.js" defer></script>
+
     <title>Home Page</title>
   </head>
   <body class="home">
@@ -33,7 +35,7 @@
       <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
 
       <nav>
-        <ul id="primary-navigation" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
           <li class="active">
             <a class="text-white letter-spaceing-2" href="index.html"><span>00</span>acasă</a>
           </li>

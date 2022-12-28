@@ -226,3 +226,10 @@ cu max-width: 35rem;
 
 -> Cum adaugi acel buton hamburger?
 	-> easy, acelui buton ii dai displey: absolute; il pui in partea stanga sus, dai un background-image si aia e
+
+OBS: 1) <script src="/index.js" defer></script> the # defer # attribute can be used to ensure that the script is not executed until the page is fully load
+
+2) clasele sunt pentru stilizare
+3) aria selectors are for screen readers, like aria
+4) data atributes are for javaScript, like data-visible="false", even aria selectors can be modified by using javaScript
+	-> aceste atribute le poti inventa, doar sa pui prefixul de "data"
