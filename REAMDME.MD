@@ -203,3 +203,4 @@ body {
 
 ### padding-block: 3rem;   == padding-top: 3rem  && padding-bottom: 3rem;
 ### padding-inline: 2rem  === padding-left: 2rem && padding-right: 2rem;
+### buci frumoase
