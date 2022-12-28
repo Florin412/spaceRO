@@ -321,6 +321,11 @@ select {
     background-repeat: no-repeat;
     background-position: center;
     border: 0;
+    transition: background-image 300ms ease-in;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(/assets/shared/icon-close.svg);
   }
 }
 
@@ -328,6 +333,11 @@ select {
   list-style: none;
   background-color: hsl(var(--clr-white) / 0.1);
   backdrop-filter: blur(2rem);
+  transition: transform 300ms ease-in-out;
+}
+
+.primary-navigation[data-visible="true"] {
+  transform: translateX(0);
 }
 
 .primary-navigation a {
