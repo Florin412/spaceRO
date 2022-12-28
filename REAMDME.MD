@@ -170,7 +170,7 @@ OBS: daca trebuie sa faci o clasa care faci un lucru, doar un singur lucru, atun
 		-> clamp(5rem, 8vw + 1rem, 9rem) //pt font size responsive
 
 
-#### Adding the background images
+### Adding the background images
 	-> va aparea in partea cea mai de jos din style.css
 /* ------------------------- */
 /* Page specific background  */
@@ -196,3 +196,33 @@ body {
     background-image: url(/starter-code/assets/home/background-home-desktop.jpg);
   }
 }
+
+============================================================
+## Pasul 3: NAVIGATION MENU
+============================================================
+
+- padding-block: 3rem;   == padding-top: 3rem  && padding-bottom: 3rem;
+- padding-inline: 2rem  === padding-left: 2rem && padding-right: 2rem;
+
+--- Create a hamburger menu by adding a button in header between img and nav
+	-> cand ai un buton care face ceva, de ex. face sa apara sau dispara bara de navigare, pt. partea de accesibilitate trb sa spunem
+	ce face butonul => va avea un atribut de aria-controls="primary-navigation"
+		---> butonul va controla elementul ce are un ID = primary-navigation, si nu o clasa
+			--> <ul id="primary-navigation"> ... </ul>
+	
+	-> <button> <span aria-expanded="false"> Menu </span> </button> // in acest moment, stim ca meniul este inchis iar daca apasam butonul se va deschide
+	si va trebui sa folosim putin js ca sa functioneze
+
+	-> elemenului de ul ii dam displey: fixed; // astfel va pluti in pagina
+		-> + proprietate inset: top right bottm left; // e o scurtatura pentru cele 4 proprietati
+			-> inset: 0 0 0 20%;
+
+-> primary-navigation stilizat pentru mobile pune-l intr-un media query
+cu max-width: 35rem;
+
+-> cum faci acel background cu elect de glass ??
+	-> background-color: hsl(23, 23%, 24% / 0.1); // e obligatoriu sa setezi o opacitate pentru background color altfel NU O SA MEARGA !!
+	-> backdrop-filter: blur(2rem);
+
+-> Cum adaugi acel buton hamburger?
+	-> easy, acelui buton ii dai displey: absolute; il pui in partea stanga sus, dai un background-image si aia e
