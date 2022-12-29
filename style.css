@@ -159,7 +159,7 @@ select {
   align-items: center;
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 47.6rem) {
   .grid-container {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
@@ -291,7 +291,7 @@ select {
   display: none;
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 47.5em) {
   .primary-navigation {
     list-style: none;
     flex-direction: column;
@@ -329,11 +329,18 @@ select {
   }
 }
 
+@media (min-width: 45em) {
+  .primary-navigation {
+    padding-inline: clamp(2rem, 5vw, 7rem);
+  }
+}
+
 .primary-navigation {
   list-style: none;
   background-color: hsl(var(--clr-white) / 0.1);
   backdrop-filter: blur(2rem);
   transition: transform 300ms ease-in-out;
+  margin: 0;
 }
 
 .primary-navigation[data-visible="true"] {
@@ -341,7 +348,9 @@ select {
 }
 
 .primary-navigation a {
+  display: block;
   text-decoration: none;
+  padding: 2rem 0;
 }
 
 .primary-navigation a span {
@@ -349,15 +358,21 @@ select {
   font-weight: 600;
 }
 
+@media (45em <= width <= 70em) {
+  .primary-navigation span {
+    display: none;
+  }
+}
+
 .underline-indicators > * {
   cursor: pointer;
-  padding: 1rem 0;
-  border-bottom: 2px solid hsl(var(--clr-white) / 0);
+  /* padding: 1rem 0; */
+  border-bottom: 4px solid hsl(var(--clr-white) / 0);
   transition: 0.3s border-color ease-in-out;
 }
 
 .underline-indicators .active {
-  border-bottom: 2px solid hsl(var(--clr-white) / 1);
+  border-bottom: 4px solid hsl(var(--clr-white) / 1);
 }
 
 .underline-indicators > *:hover:not(.active),
@@ -405,14 +420,39 @@ select {
 /* ------------------- */
 /* Header Section      */
 /* ------------------- */
-
-header {
+.primary-header {
+  justify-content: space-between;
   align-items: center;
+}
+
+.logo {
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
 }
 
 .logo > img {
   width: auto;
   height: auto;
+}
+
+.primary-header .logo > :last-child {
+  /* hide the logo for mobile */
+  display: none;
+}
+
+@media (width <= 70em) {
+  .primary-header .logo > :first-child {
+    display: none;
+  }
+  /* display the mobile logo */
+  .primary-header .logo > :last-child {
+    display: block;
+  }
+}
+
+@media (min-width: 70em) {
+  .primary-header {
+    margin-block: clamp(1rem, 5vh, 2.5rem);
+  }
 }
 
 /* ------------------------- */
@@ -433,7 +473,7 @@ body {
     background-image: url(/assets/home/background-home-tablet.jpg);
   }
 }
-@media (min-width: 45rem) {
+@media (min-width: 47.6rem) {
   .home {
     background-image: url(/assets/home/background-home-desktop.jpg);
   }
