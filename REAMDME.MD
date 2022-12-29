@@ -235,3 +235,6 @@ OBS: 1) <script src="/index.js" defer></script> the # defer # attribute can be u
 	-> aceste atribute le poti inventa, doar sa pui prefixul de "data"
 
 -> daca folosesti clamp() la margin/padding NU e nevoie sa adaugi la middle value +1rem
+
+OBS: <span aria-hidden="true">01</span> // ascunde elementul span de screen reader
+	--sr-only utility class ascunde continutul de noi 

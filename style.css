@@ -203,6 +203,23 @@ select {
   border: 0;
 }
 
+.skip-to-content {
+  position: absolute;
+  left: 50%;
+  z-index: 999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 300ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+
+}
+
 .d-block {
   display: block;
 }
@@ -417,7 +434,8 @@ select {
   transition: 0.3s scale ease, 0.3s opacity ease-out;
 }
 
-.large-button:hover::before {
+.large-button:hover::before,
+.large-button:focus::before {
   scale: 1.5;
   opacity: 1;
 }
