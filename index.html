@@ -22,18 +22,24 @@
     <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Link to JS -->
     <script src="/index.js" defer></script>
 
     <title>Home Page</title>
   </head>
   <body class="home">
-    <header class="flex">
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
       <div class="logo">
         <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
       </div>
 
+      <!-- button -->
       <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
 
+      <!-- primary navigation -->
       <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
           <li class="active">
@@ -55,14 +61,13 @@
       </nav>
     </header>
 
-    <div class="grid-container grid-container--home">
-      <!-- Content Section -->
+    <!-- Main Section -->
+    <main class="grid-container grid-container--home">
+      <!-- text -->
       <div class="text-accent">
         <h1 class="uppercase fs-500 ff-barlow-cond letter-spaceing-1">
           Deci, vrei să călătorești în
-          <span class="fs-900 text-white ff-bellefair letter-spaceing-0 d-block"
-            >spațiu</span
-          >
+          <span class="fs-900 text-white ff-bellefair letter-spaceing-0 d-block">spațiu</span>
         </h1>
 
         <p class="line-height-32 ff-barlow-normal">
@@ -73,14 +78,10 @@
         </p>
       </div>
 
-      <!-- Explore button section -->
+      <!-- large button -->
       <div>
-        <a
-          class="large-button uppercase letter-spaceing-3 text-dark ff-bellefair"
-          href="#"
-          >Explorează</a
-        >
+        <a class="large-button uppercase letter-spaceing-3 text-dark ff-bellefair" href="#">Explorează</a>
       </div>
-    </div>
+    </main>
   </body>
 </html>

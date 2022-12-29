@@ -205,10 +205,10 @@ body {
 - padding-inline: 2rem  === padding-left: 2rem && padding-right: 2rem;
 
 --- Create a hamburger menu by adding a button in header between img and nav
-	-> cand ai un buton care face ceva, de ex. face sa apara sau dispara bara de navigare, pt. partea de accesibilitate trb sa spunem
+	-> cand ai un buton care face ceva, de ex. face sa apara sau dispara bara de navigare, pt. partea de !accesibilitate! trb sa spunem
 	ce face butonul => va avea un atribut de aria-controls="primary-navigation"
 		---> butonul va controla elementul ce are un ID = primary-navigation, si nu o clasa
-			--> <ul id="primary-navigation"> ... </ul>
+			--> <ul id="primary-navigation"> ... </ul> // functioneaza si fara aria-controls
 	
 	-> <button> <span aria-expanded="false"> Menu </span> </button> // in acest moment, stim ca meniul este inchis iar daca apasam butonul se va deschide
 	si va trebui sa folosim putin js ca sa functioneze
@@ -225,7 +225,7 @@ cu max-width: 35rem;
 	-> backdrop-filter: blur(2rem);
 
 -> Cum adaugi acel buton hamburger?
-	-> easy, acelui buton ii dai displey: absolute; il pui in partea stanga sus, dai un background-image si aia e
+	-> easy, acelui buton ii dai displey: absolute; il pui in partea dreapta sus, dai un background-image si aia e
 
 OBS: 1) <script src="/index.js" defer></script> the # defer # attribute can be used to ensure that the script is not executed until the page is fully load
 
@@ -233,3 +233,5 @@ OBS: 1) <script src="/index.js" defer></script> the # defer # attribute can be u
 3) aria selectors are for screen readers, like aria
 4) data atributes are for javaScript, like data-visible="false", even aria selectors can be modified by using javaScript
 	-> aceste atribute le poti inventa, doar sa pui prefixul de "data"
+
+-> daca folosesti clamp() la margin/padding NU e nevoie sa adaugi la middle value +1rem
