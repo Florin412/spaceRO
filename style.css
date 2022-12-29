@@ -430,6 +430,13 @@ select {
   }
 }
 
+/* this media removes overflow-y when :hover over button on tablet */
+@media (35em < width < 55em) {
+  .large-button {
+    margin-bottom: 3rem;
+  }
+}
+
 /* ------------------- */
 /* Header Section      */
 /* ------------------- */
