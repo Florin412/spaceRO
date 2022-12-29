@@ -149,6 +149,7 @@ select {
   row-gap: 5rem;
 }
 
+/* text will never be larger than 60ch */
 .grid-container * {
   max-width: 60ch;
 }
@@ -160,6 +161,8 @@ select {
 }
 
 @media (min-width: 47.6rem) {
+  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
+  /* those columns will apear just on desktop */
   .grid-container {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
@@ -168,17 +171,19 @@ select {
         1fr
       );
   }
-
+  /* put the text section on column 2 */
   .grid-container > *:first-child {
     grid-column: 2;
   }
 
+  /* put the large button on column 3 */
   .grid-container > *:last-child {
     grid-column: 3;
     justify-content: flex-end;
     align-items: end;
   }
 
+  /* home page has a uniq padding-bottom */
   .grid-container--home {
     padding-bottom: max(6rem, 30vh);
     align-items: end;
@@ -196,6 +201,23 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  left: 50%;
+  z-index: 999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 300ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+
 }
 
 .d-block {
@@ -287,10 +309,12 @@ select {
 /* Components          */
 /* ------------------- */
 
+/* on desktop device, button for navigation is gone */
 .mobile-nav-toggle {
   display: none;
 }
 
+/* on mobile, navigation is gone until the button is pressed */
 @media (max-width: 47.5em) {
   .primary-navigation {
     list-style: none;
@@ -304,10 +328,12 @@ select {
     transform: translateX(100%);
   }
 
+  /* delete underline on activ link */
   .primary-navigation.underline-indicators > .active {
     border-bottom: 0;
   }
 
+  /* on mobile device, button for navigation is activ and functional */
   .mobile-nav-toggle {
     display: block;
     position: absolute;
@@ -324,11 +350,13 @@ select {
     transition: background-image 300ms ease-in;
   }
 
+  /* button icon changes when is pressed */
   .mobile-nav-toggle[aria-expanded="true"] {
     background-image: url(/assets/shared/icon-close.svg);
   }
 }
 
+/* some responsive padding inline for desktop */
 @media (min-width: 45em) {
   .primary-navigation {
     padding-inline: clamp(2rem, 5vw, 7rem);
@@ -343,6 +371,7 @@ select {
   margin: 0;
 }
 
+/* when the button is pressed, primary-navigation appears and disapears */
 .primary-navigation[data-visible="true"] {
   transform: translateX(0);
 }
@@ -358,6 +387,7 @@ select {
   font-weight: 600;
 }
 
+/* delete numbers from primary-navigation on tablet mode */
 @media (45em <= width <= 70em) {
   .primary-navigation span {
     display: none;
@@ -366,7 +396,6 @@ select {
 
 .underline-indicators > * {
   cursor: pointer;
-  /* padding: 1rem 0; */
   border-bottom: 4px solid hsl(var(--clr-white) / 0);
   transition: 0.3s border-color ease-in-out;
 }
@@ -405,15 +434,24 @@ select {
   transition: 0.3s scale ease, 0.3s opacity ease-out;
 }
 
-.large-button:hover::before {
+.large-button:hover::before,
+.large-button:focus::before {
   scale: 1.5;
   opacity: 1;
 }
 
+/* large-button is smaller on mobile */
 @media (max-width: 35rem) {
   .large-button {
     width: 12rem;
     font-size: 20px;
+  }
+}
+
+/* this media removes overflow-y when :hover over button on tablet */
+@media (35em < width < 55em) {
+  .large-button {
+    margin-bottom: 3rem;
   }
 }
 
@@ -425,6 +463,7 @@ select {
   align-items: center;
 }
 
+/* logo is moving on right/left depanding on device width */
 .logo {
   margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
 }
@@ -440,6 +479,7 @@ select {
 }
 
 @media (width <= 70em) {
+  /* hide desktop logo */
   .primary-header .logo > :first-child {
     display: none;
   }
@@ -450,6 +490,7 @@ select {
 }
 
 @media (min-width: 70em) {
+  /* add some margin for primary-header on desktop */
   .primary-header {
     margin-block: clamp(1rem, 5vh, 2.5rem);
   }
@@ -460,7 +501,7 @@ select {
 /* ------------------------- */
 body {
   background-size: cover;
-  background-position: bottom center; /* allways will be visible the bottom center part of the image + the bg-size is set to cover */
+  background-position: bottom center;
 }
 
 .home {
