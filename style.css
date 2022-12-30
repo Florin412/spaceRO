@@ -490,8 +490,7 @@ body {
   padding-bottom: 4rem;
 }
 
-.grid-container *,
-.grid-continer p {
+.grid-container p {
   /* text will never be larger than 60ch */
   max-width: 60ch;
 }
