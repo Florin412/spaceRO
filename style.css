@@ -485,7 +485,7 @@ select {
 
 .tab-list > * {
   background-color: transparent;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
 }
 
 .grid-container--destination .destination-info > p {
@@ -504,7 +504,7 @@ select {
 /* Crew page                 */
 /* ------------------------- */
 
-.crew-details > h2 {
+.crew-details  h2 {
   color: hsl(var(--clr-white) / 0.5);
 }
 
@@ -733,5 +733,9 @@ body {
     scale: 1.2;
     align-self: end;
     transform: translateX(12px);
+  }
+
+  .crew-details.flow {
+    --flow-space: .7rem;
   }
 }
