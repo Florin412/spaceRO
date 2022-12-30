@@ -601,7 +601,7 @@ body {
     "moon-info";
 }
 
-.grid-container--destination > img {
+.grid-container--destination > picture {
   grid-area: moon;
   max-width: 70%;
 }
@@ -628,7 +628,7 @@ body {
     "crew-details";
 }
 
-.grid-container--crew > img {
+.grid-container--crew > picture {
   border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
   max-width: 60%;
   grid-area: image;
@@ -711,7 +711,7 @@ body {
     --gap: clamp(4rem, 5vw, 6rem);
   }
 
-  .grid-container--destination > img {
+  .grid-container--destination > picture {
     max-width: 90%;
   }
 
@@ -729,7 +729,7 @@ body {
     align-self: start;
   }
 
-  .grid-container--crew > img {
+  .grid-container--crew > picture {
     scale: 1.2;
     align-self: end;
     transform: translateX(12px);

@@ -248,3 +248,22 @@ OBS: <span aria-hidden="true">01</span> // ascunde elementul span de screen read
 - MOBILE FIRST !!! and then going up
 
 -justify-content: space-evenly; // a fost adaugata recent, e un fel de space arround dar mai smecher
+
+
+============================================================
+## Pasul 3: CREW PAGE
+============================================================
+
+### - poti observa ca avem un nou tip de format:  webp
+	-> imaginile cu acest format inlocuiest jpeg & png
+	-> au browser suport bun
+	-> !!!!! ocupa 2x+ mai putina memorie decat cele 2 de mai sus !!!!!!!!!
+	-> suporta transparenta daca ea exista in imagine
+
+	-> ca sa fii sigur ca browserul suporta extensia, vom folosi elementul <picture>
+
+-> exemplu: 
+<picture>
+	<source srcset="assets/destination/image-moon.webp" type="image/webp"> // browserul citeste de sus in jos si vede ce poate folosi, daca nu poate fol. webp sare la png
+	<img src="assets/destination/image-moon.png" alt="the moon"> // imagine de rezerva
+</picture>
