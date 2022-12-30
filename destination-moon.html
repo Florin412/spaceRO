@@ -44,10 +44,10 @@
       <!-- primary navigation -->
       <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
-          <li class="active">
+          <li >
             <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
           </li>
-          <li>
+          <li class="active">
             <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
           </li>
           <li>
@@ -65,25 +65,36 @@
 
     <!-- Main Section -->
     <main id="main" class="grid-container-xxxx grid-container--destination">
-      01 Pick your destination
+      <h1 class="numbered-title ff-barlow-cond"><span aria-hidden="true">01</span> Alegeți destinația</h1>
+      
+      <img src="/assets/destination/image-moon.png" alt="the moon">
 
-      Moon
-      Mars
-      Europa
-      Titan
+      <div class="tab-list underline-indicators flex">
+        <button class="active uppercase text-white ff-barlow-cond fs-400 letter-spaceing-2">Lună</button>
+        <button class="uppercase text-accent ff-barlow-cond fs-400 letter-spaceing-2">Marte</button>
+        <button class="uppercase text-accent ff-barlow-cond fs-400 letter-spaceing-2">Europa</button>
+        <button class="uppercase text-accent ff-barlow-cond fs-400 letter-spaceing-2">Titan</button>
+      </div>
+      
+      <article>
+        <h2 class="ff-bellefair fs-800 uppercase">Luna</h2>
+        <p class="ff-barlow-normal fs-400 text-accent">
+          Privește planeta noastră așa cum nu ai mai văzut-o până acum. O excursie relaxantă, perfectă pentru a vă recăpăta perspectiva și pentru a vă întoarce împrospătat. În timp ce sunteți acolo, amintiți-vă de istorie vizitând locurile de aterizare Luna și Apollo 11.
+        </p>
 
-      Moon
+        <div class="flex uppercase">
+          <div>
+            <h3 class="text-accent fs-200 ff-barlow-cond letter-spaceing-3">Distanța medie</h3>
+            <p class="fs-600 ff-bellefair">384,400 km</p>
+          </div>
+            
+          <div>
+            <h3 class="text-accent fs-200 ff-barlow-cond letter-spaceing-3">Timp de călătorie</h3>
+            <p class="fs-600 ff-bellefair">3 zile</p>
+          </div>
+        </div>
 
-      See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
-      regain perspective and come back refreshed. While you’re there, take in some history 
-      by visiting the Luna 2 and Apollo 11 landing sites.
-
-      Avg. distance
-      384,400 km
-
-      Est. travel time
-      3 days
-
+      </article>
     </main>
 
 </body>
