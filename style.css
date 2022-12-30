@@ -3,6 +3,7 @@
 /* ------------------- */
 
 :root {
+  --flow-space: 1rem;
   /* colors */
   --clr-dark: 230 35% 7%;
   --clr-accent: 231 77% 90%;
@@ -152,55 +153,6 @@ select {
   max-width: 50rem;
 }
 
-.grid-container {
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1.5rem;
-  row-gap: 5rem;
-}
-
-/* text will never be larger than 60ch */
-.grid-container * {
-  max-width: 60ch;
-}
-
-.grid-container > *:last-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 47.6rem) {
-  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
-  /* those columns will apear just on desktop */
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(auto, 33rem)) minmax(
-        2rem,
-        1fr
-      );
-  }
-  /* put the text section on column 2 */
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-
-  /* put the large button on column 3 */
-  .grid-container > *:last-child {
-    grid-column: 3;
-    justify-content: flex-end;
-    align-items: end;
-  }
-
-  /* home page has a uniq padding-bottom */
-  .grid-container--home {
-    padding-bottom: max(6rem, 30vh);
-    align-items: end;
-  }
-}
-
 .sr-only {
   /*  properties are for screen readers */
   position: absolute;
@@ -319,20 +271,11 @@ select {
   opacity: 1;
 }
 
-
 @media (max-width: 35rem) {
   /* large-button is smaller on mobile */
   .large-button {
     width: 12rem;
     font-size: 20px;
-  }
-}
-
-
-@media (35em < width < 55em) {
-  /* this media removes overflow-y when :hover over button on tablet */
-  .large-button {
-    margin-bottom: 3rem;
   }
 }
 
@@ -498,10 +441,17 @@ select {
   padding-block: 1rem;
 }
 
-.grid-container--destination article > p {
+.grid-container--destination .destination-info > p {
   line-height: 27px;
 }
 
+.destination-meta {
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid hsl( var(--clr-white) / .25);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+}
 
 /* ------------------------- */
 /* Page specific background  */
@@ -524,5 +474,128 @@ body {
 @media (min-width: 47.6rem) {
   .home {
     background-image: url(/assets/home/background-home-desktop.jpg);
+  }
+}
+
+
+/* ------------------------- */
+/* Layout                    */
+/* ------------------------- */
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.grid-container *,
+.grid-continer p {
+  /* text will never be larger than 60ch */
+  max-width: 60ch;
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+/* --- Home layout --- */
+.grid-container--home > *:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 47.6rem) {
+  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
+  /* those columns will apear just on desktop */
+  .grid-container--home {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(auto, 33rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+  
+  .grid-container--home > *:first-child {
+    /* put the text section on column 2 */
+    grid-column: 2;
+  }
+
+  .grid-container--home > *:last-child {
+  /* put the large button on column 3 */
+    grid-column: 3;
+    justify-content: flex-end;
+    align-items: end;
+  }
+
+  .grid-container--home {
+    /* home page has a uniq padding-bottom */
+    padding-bottom: max(6rem, 30vh);
+    align-items: end;
+  }
+}
+
+
+/* --- Destination layout --- */
+.grid-container--destination {
+  
+  align-items: start;
+  grid-template-areas: 
+    "title"
+    "moon"
+    "tabs"
+    "moon-info";
+}
+
+.grid-container--destination > img {
+  grid-area: moon;
+  max-width: 70%;
+}
+
+.grid-container--destination > .tab-list {
+  grid-area: tabs;
+}
+
+.grid-container--destination > .destination-info {
+  grid-area: moon-info;
+}
+
+.grid-container--destination.flow {
+  --flow-space: 2rem;
+}
+
+@media (min-width: 47.55em) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2.5rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 65em) {
+    .grid-container--destination {
+      justify-items: start;
+      align-content: start;
+      text-align: left;
+      grid-template-areas: 
+        ". title title ."
+        ". moon tabs ."
+        ". moon moon-info .";
+    }
+
+    .destination-meta {
+      justify-content: flex-start;
+      --gap: clamp(4rem, 5vw, 6rem);
+    }
+
+    .grid-container--destination > img {
+      max-width: 90%;
+    }
   }
 }

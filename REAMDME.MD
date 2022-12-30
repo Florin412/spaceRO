@@ -246,3 +246,5 @@ OBS: <span aria-hidden="true">01</span> // ascunde elementul span de screen read
 
 - am ales sa fac o singura pagina pentru fiecare link din navbar, iar continutul din fiecare pagina sa fie afisat sau ascuns folosing JavaScript
 - MOBILE FIRST !!! and then going up
+
+-justify-content: space-evenly; // a fost adaugata recent, e un fel de space arround dar mai smecher
