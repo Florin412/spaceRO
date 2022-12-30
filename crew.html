@@ -25,9 +25,11 @@
     <!-- Link to JS -->
     <script src="/index.js" defer></script>
 
-    <title>Home Page</title>
+    <title>Destination Page</title>
   </head>
-  <body class="home">
+
+  <body class="crew">
+
     <a href="#main" class="skip-to-content sr-only">Skip to main</a>
     <!-- Header Section -->
     <header class="flex primary-header">
@@ -43,13 +45,13 @@
       <!-- primary navigation -->
       <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
-          <li class="active">
+          <li >
             <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
           </li>
           <li>
             <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
           </li>
-          <li>
+          <li class="active">
             <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
           </li>
           <li>
@@ -63,26 +65,36 @@
     </header>
 
     <!-- Main Section -->
-    <main id="main" class="grid-container grid-container--home">
-      <!-- text -->
-      <div class="text-accent">
-        <h1 class="uppercase fs-500 ff-barlow-cond letter-spaceing-1">
-          Deci, vrei să călătorești în
-          <span class="fs-900 text-white ff-bellefair letter-spaceing-0 d-block">spațiu</span>
-        </h1>
+    <main id="main" class="grid-container flow grid-container--crew">
+      <h1 class="numbered-title"><span aria-hidden="true">02</span> Cunoașteți echipajul
+      </h1>
 
-        <p class="line-height-32 ff-barlow-normal">
-          Hai să recunoaștem, dacă vrei să mergi în spațiu, ai putea la fel de
-          bine să mergi cu adevărat în spațiul cosmic și să nu plutești pe
-          marginea acestuia. Ei bine, stai pe loc și relaxează-te pentru că îți
-          vom oferi o experiență cu adevărat ieșită din această lume!
+      <img src="/assets/crew/image-douglas-hurley.png" alt="commander Douglas Hurley">
+
+      <div class="dot-indicators flex">
+        <button aria-selected="true">
+          <span class="sr-only">comandantul</span>
+        </button>
+        <button aria-selected="false">
+          <span class="sr-only">specialistul in misiune</span>
+        </button>
+        <button aria-selected="false">
+          <span class="sr-only">pilotul</span>
+        </button>
+        <button aria-selected="false">
+          <span class="sr-only">inginerul de zbor</span>
+        </button>
+      </div>
+
+      <article class="crew-details flow">
+        <h2 class="fs-600 ff-bellefair uppercase">Comandant</h2>
+        <p class="fs-700 ff-bellefair uppercase">Douglas Hurley</p>
+        <p class="text-accent">
+          Douglas Gerald Hurley este un inginer american, fost pilot al Marinei și fost astronaut NASA. S-a lansat în spațiu pentru a treia oară în calitate de comandant al Echipei Dragon Demo-2.
         </p>
-      </div>
+      </article>
 
-      <!-- large button -->
-      <div>
-        <a class="large-button uppercase letter-spaceing-3 text-dark ff-bellefair" href="#">Explorează</a>
-      </div>
     </main>
+
   </body>
 </html>
