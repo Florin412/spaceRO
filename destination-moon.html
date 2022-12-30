@@ -1,37 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  01 Pick your destination
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-  Moon
-  Mars
-  Europa
-  Titan
+    <!-- Link to JS -->
+    <script src="/index.js" defer></script>
 
-  Moon
+    <title>Destination Page</title>
+  </head>
 
-  See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
-  regain perspective and come back refreshed. While you’re there, take in some history 
-  by visiting the Luna 2 and Apollo 11 landing sites.
+  <body class="destination">
+    <a href="#main" class="skip-to-content sr-only">Skip to main</a>
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
+      <div class="logo">
+        <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
+      </div>
 
-  Avg. distance
-  384,400 km
+      <!-- button -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
 
-  Est. travel time
-  3 days
+      <!-- primary navigation -->
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+          <li class="active">
+            <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main id="main" class="grid-container-xxxx grid-container--destination">
+      01 Pick your destination
+
+      Moon
+      Mars
+      Europa
+      Titan
+
+      Moon
+
+      See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+      regain perspective and come back refreshed. While you’re there, take in some history 
+      by visiting the Luna 2 and Apollo 11 landing sites.
+
+      Avg. distance
+      384,400 km
+
+      Est. travel time
+      3 days
+
+    </main>
+
 </body>
 </html>
