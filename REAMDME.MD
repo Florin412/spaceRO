@@ -238,3 +238,13 @@ OBS: 1) <script src="/index.js" defer></script> the # defer # attribute can be u
 
 OBS: <span aria-hidden="true">01</span> // ascunde elementul span de screen reader
 	--sr-only utility class ascunde continutul de noi 
+
+
+============================================================
+## Pasul 3: DESTINATION PAGE
+============================================================
+
+- am ales sa fac o singura pagina pentru fiecare link din navbar, iar continutul din fiecare pagina sa fie afisat sau ascuns folosing JavaScript
+- MOBILE FIRST !!! and then going up
+
+-justify-content: space-evenly; // a fost adaugata recent, e un fel de space arround dar mai smecher

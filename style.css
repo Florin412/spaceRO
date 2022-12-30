@@ -3,6 +3,7 @@
 /* ------------------- */
 
 :root {
+  --flow-space: 1rem;
   /* colors */
   --clr-dark: 230 35% 7%;
   --clr-accent: 231 77% 90%;
@@ -12,8 +13,8 @@
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
-  --fs-600: 1rem;
-  --fs-500: 1.75rem;
+  --fs-600: 1.4rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -30,6 +31,7 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
     --fs-400: 1rem;
   }
 }
@@ -40,6 +42,7 @@
     --fs-800: 6.25rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
+    --fs-500: 1.75rem;
     --fs-400: 1.125rem;
   }
 }
@@ -47,6 +50,8 @@
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
 *,
@@ -94,8 +99,7 @@ body {
 /* make images easier to work with */
 img,
 picture {
-  max-width: minmax(200px, auto);
-  height: 10rem;
+  max-width: 100%;
   display: block;
 }
 
@@ -123,7 +127,7 @@ select {
 /* Utility classes     */
 /* ------------------- */
 
-/* General */
+/* general */
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -135,59 +139,18 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 50rem;
-}
-
-.grid-container {
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1.5rem;
-  row-gap: 5rem;
-}
-
-/* text will never be larger than 60ch */
-.grid-container * {
-  max-width: 60ch;
-}
-
-.grid-container > *:last-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 47.6rem) {
-  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
-  /* those columns will apear just on desktop */
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(auto, 33rem)) minmax(
-        2rem,
-        1fr
-      );
-  }
-  /* put the text section on column 2 */
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-
-  /* put the large button on column 3 */
-  .grid-container > *:last-child {
-    grid-column: 3;
-    justify-content: flex-end;
-    align-items: end;
-  }
-
-  /* home page has a uniq padding-bottom */
-  .grid-container--home {
-    padding-bottom: max(6rem, 30vh);
-    align-items: end;
-  }
 }
 
 .sr-only {
@@ -220,102 +183,175 @@ select {
 
 }
 
-.d-block {
-  display: block;
-}
+/* colors */
+.text-dark { color: hsl(var(--clr-dark)); }
+.text-white { color: hsl(var(--clr-white)); }
+.text-accent { color: hsl(var(--clr-accent)); }
 
-/* Colors */
-.text-dark {
-  color: hsl(var(--clr-dark));
-}
-.text-white {
-  color: hsl(var(--clr-white));
-}
-.text-accent {
-  color: hsl(var(--clr-accent));
-}
-
-.bg-dark {
-  background-color: hsl(var(--clr-dark));
-}
-.bg-white {
-  background-color: hsl(var(--clr-white));
-}
-.bg-accent {
-  background-color: hsl(var(--clr-accent));
-}
+.bg-dark { background-color: hsl(var(--clr-dark)); }
+.bg-white { background-color: hsl(var(--clr-white)); }
+.bg-accent { background-color: hsl(var(--clr-accent)); }
 
 /* Typography */
-.ff-bellefair {
-  font-family: var(--ff-bellefair);
-}
-.ff-barlow-cond {
-  font-family: var(--ff-barlow-cond);
-}
-.ff-barlow-normal {
-  font-family: var(--ff-barlow-normal);
-}
+.ff-bellefair { font-family: var(--ff-bellefair); }
+.ff-barlow-cond { font-family: var(--ff-barlow-cond); }
+.ff-barlow-normal { font-family: var(--ff-barlow-normal); }
 
-.letter-spaceing-1 {
-  letter-spacing: 4.75px;
-}
-.letter-spaceing-2 {
-  letter-spacing: 2.7px;
-}
-.letter-spaceing-3 {
-  letter-spacing: 2.35px;
-}
-.letter-spaceing-0 {
-  letter-spacing: 0;
-}
+.letter-spaceing-1 { letter-spacing: 4.75px; }
+.letter-spaceing-2 { letter-spacing: 2.7px; }
+.letter-spaceing-3 { letter-spacing: 2.35px; }
+.letter-spaceing-0 { letter-spacing: 0; }
 
 /* big bold = big font size */
-.fs-900 {
-  font-size: var(--fs-900);
-}
-.fs-800 {
-  font-size: var(--fs-800);
-}
-.fs-700 {
-  font-size: var(--fs-700);
-}
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
 .fs-600 {
-  font-size: var(--fs-600);
-}
-.fs-500 {
-  font-size: var(--fs-500);
-}
-.fs-400 {
-  font-size: var(--fs-400);
-}
-.fs-300 {
-  font-size: var(--fs-300);
-}
-.fs-200 {
-  font-size: var(--fs-200);
+    line-height: 1.1;
 }
 
-.uppercase {
+.uppercase { text-transform: uppercase; }
+.text-justify { text-align: justify; }
+.line-height-32 { line-height: 32px; }
+
+.numbered-title {
+  font-family: var(--ff-barlow-cond);
+  font-size: var(--fs-500);
   text-transform: uppercase;
+  letter-spacing: 4.72px;
 }
-.text-justify {
-  text-align: justify;
-}
-.line-height-32 {
-  line-height: 32px;
+
+.numbered-title span {
+  margin-right: .5em;
+  font-weight: 700;
+  color: hsl( var(--clr-white) / .25);
 }
 
 /* ------------------- */
 /* Components          */
 /* ------------------- */
 
-/* on desktop device, button for navigation is gone */
-.mobile-nav-toggle {
+.large-button {
+  font-size: 2rem;
+  background-color: hsl(var(--clr-white));
+  text-decoration: none;
+  display: grid;
+  padding: 0 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  place-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.large-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: hsl(var(--clr-white) / 0.15);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: 0.3s scale ease, 0.3s opacity ease-out;
+}
+
+.large-button:hover::before,
+.large-button:focus::before {
+  scale: 1.5;
+  opacity: 1;
+}
+
+@media (max-width: 35rem) {
+  /* large-button is smaller on mobile */
+  .large-button {
+    width: 12rem;
+    font-size: 20px;
+  }
+}
+
+/* primary-header */
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  /* logo is moving on right/left depanding on device width */
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header .logo > :last-child {
+  /* hide mobile logo */
   display: none;
 }
 
-/* on mobile, navigation is gone until the button is pressed */
+@media (width <= 70em) {
+  /* hide desktop logo */
+  .primary-header .logo > :first-child {
+    display: none;
+  }
+  /* display the mobile logo */
+  .primary-header .logo > :last-child {
+    display: block;
+  }
+}
+
+@media (min-width: 70em) {
+  /* add some margin for primary-header on desktop */
+  .primary-header {
+    margin-block: clamp(1rem, 5vh, 2.5rem);
+  }
+}
+
+.primary-navigation {
+  list-style: none;
+  background-color: hsl(var(--clr-white) / 0.1);
+  backdrop-filter: blur(2rem);
+  transition: transform 300ms ease-in-out;
+  margin: 0;
+}
+
+.primary-navigation[data-visible="true"] {
+  /* when the button is pressed, primary-navigation appears and disapears */
+  transform: translateX(0);
+}
+
+.primary-navigation a {
+  display: block;
+  text-decoration: none;
+  padding: 2rem 0;
+}
+
+.primary-navigation a span {
+  margin-right: 0.4rem;
+  font-weight: 600;
+}
+
+@media (45em <= width <= 70em) {
+  /* hide numbers from primary-navigation on tablet mode */
+  .primary-navigation span {
+    display: none;
+  }
+}
+
+.mobile-nav-toggle {
+  /* on desktop device, button for navigation is gone */
+  display: none;
+}
+
 @media (max-width: 47.5em) {
+  /* on mobile, navigation is gone until the button is pressed */
   .primary-navigation {
     list-style: none;
     flex-direction: column;
@@ -350,51 +386,21 @@ select {
     transition: background-image 300ms ease-in;
   }
 
-  /* button icon changes when is pressed */
+  /* icon's button changes when is pressed */
   .mobile-nav-toggle[aria-expanded="true"] {
     background-image: url(/assets/shared/icon-close.svg);
   }
 }
 
-/* some responsive padding inline for desktop */
 @media (min-width: 45em) {
+  /* some responsive padding inline for desktop */
   .primary-navigation {
     padding-inline: clamp(2rem, 5vw, 7rem);
   }
 }
 
-.primary-navigation {
-  list-style: none;
-  background-color: hsl(var(--clr-white) / 0.1);
-  backdrop-filter: blur(2rem);
-  transition: transform 300ms ease-in-out;
-  margin: 0;
-}
-
-/* when the button is pressed, primary-navigation appears and disapears */
-.primary-navigation[data-visible="true"] {
-  transform: translateX(0);
-}
-
-.primary-navigation a {
-  display: block;
-  text-decoration: none;
-  padding: 2rem 0;
-}
-
-.primary-navigation a span {
-  margin-right: 0.4rem;
-  font-weight: 600;
-}
-
-/* delete numbers from primary-navigation on tablet mode */
-@media (45em <= width <= 70em) {
-  .primary-navigation span {
-    display: none;
-  }
-}
-
 .underline-indicators > * {
+  border: 0;
   cursor: pointer;
   border-bottom: 4px solid hsl(var(--clr-white) / 0);
   transition: 0.3s border-color ease-in-out;
@@ -409,91 +415,42 @@ select {
   border-color: hsl(var(--clr-white) / 0.5);
 }
 
-.large-button {
-  font-size: 2rem;
-  background-color: hsl(var(--clr-white));
-  text-decoration: none;
-  display: grid;
-  padding: 0 2rem;
+.dot-indicators button {
+  border-radius: 50%;
+  border: none;
   aspect-ratio: 1;
-  border-radius: 50%;
-  place-content: center;
-  position: relative;
-  z-index: 1;
+  background-color: hsl(var(--clr-dark) / 0.5);
 }
 
-.large-button::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  background-color: hsl(var(--clr-white) / 0.15);
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  transition: 0.3s scale ease, 0.3s opacity ease-out;
+.dot-indicators button:hover {
+  cursor: pointer;
+  background-color: hsl( var(--clr-white) / .6);
 }
 
-.large-button:hover::before,
-.large-button:focus::before {
-  scale: 1.5;
-  opacity: 1;
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl( var(--clr-white) / 1);
 }
 
-/* large-button is smaller on mobile */
-@media (max-width: 35rem) {
-  .large-button {
-    width: 12rem;
-    font-size: 20px;
-  }
+
+/* ------------------------- */
+/* Destination page          */
+/* ------------------------- */
+
+.tab-list > * {
+  background-color: transparent;
+  padding-block: 1rem;
 }
 
-/* this media removes overflow-y when :hover over button on tablet */
-@media (35em < width < 55em) {
-  .large-button {
-    margin-bottom: 3rem;
-  }
+.grid-container--destination .destination-info > p {
+  line-height: 27px;
 }
 
-/* ------------------- */
-/* Header Section      */
-/* ------------------- */
-.primary-header {
-  justify-content: space-between;
+.destination-meta {
+  flex-direction: column;
   align-items: center;
-}
-
-/* logo is moving on right/left depanding on device width */
-.logo {
-  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
-}
-
-.logo > img {
-  width: auto;
-  height: auto;
-}
-
-.primary-header .logo > :last-child {
-  /* hide the logo for mobile */
-  display: none;
-}
-
-@media (width <= 70em) {
-  /* hide desktop logo */
-  .primary-header .logo > :first-child {
-    display: none;
-  }
-  /* display the mobile logo */
-  .primary-header .logo > :last-child {
-    display: block;
-  }
-}
-
-@media (min-width: 70em) {
-  /* add some margin for primary-header on desktop */
-  .primary-header {
-    margin-block: clamp(1rem, 5vh, 2.5rem);
-  }
+  border-top: 1px solid hsl( var(--clr-white) / .25);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 /* ------------------------- */
@@ -517,5 +474,127 @@ body {
 @media (min-width: 47.6rem) {
   .home {
     background-image: url(/assets/home/background-home-desktop.jpg);
+  }
+}
+
+
+/* ------------------------- */
+/* Layout                    */
+/* ------------------------- */
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.grid-container p {
+  /* text will never be larger than 60ch */
+  max-width: 60ch;
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+/* --- Home layout --- */
+.grid-container--home > *:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 47.6rem) {
+  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
+  /* those columns will apear just on desktop */
+  .grid-container--home {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(auto, 33rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+  
+  .grid-container--home > *:first-child {
+    /* put the text section on column 2 */
+    grid-column: 2;
+  }
+
+  .grid-container--home > *:last-child {
+  /* put the large button on column 3 */
+    grid-column: 3;
+    justify-content: flex-end;
+    align-items: end;
+  }
+
+  .grid-container--home {
+    /* home page has a uniq padding-bottom */
+    padding-bottom: max(6rem, 30vh);
+    align-items: end;
+  }
+}
+
+
+/* --- Destination layout --- */
+.grid-container--destination {
+  
+  align-items: start;
+  grid-template-areas: 
+    "title"
+    "moon"
+    "tabs"
+    "moon-info";
+}
+
+.grid-container--destination > img {
+  grid-area: moon;
+  max-width: 70%;
+}
+
+.grid-container--destination > .tab-list {
+  grid-area: tabs;
+}
+
+.grid-container--destination > .destination-info {
+  grid-area: moon-info;
+}
+
+.grid-container--destination.flow {
+  --flow-space: 2rem;
+}
+
+@media (min-width: 47.55em) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2.5rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 65em) {
+    .grid-container--destination {
+      justify-items: start;
+      align-content: start;
+      text-align: left;
+      grid-template-areas: 
+        ". title title ."
+        ". moon tabs ."
+        ". moon moon-info .";
+    }
+
+    .destination-meta {
+      justify-content: flex-start;
+      --gap: clamp(4rem, 5vw, 6rem);
+    }
+
+    .grid-container--destination > img {
+      max-width: 90%;
+    }
   }
 }
