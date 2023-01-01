@@ -4,23 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Thank you</title>
     <style>
         body {
-          background-color: lightblue;
+          background-color: hsl(var(--clr-dark) / .9);
           text-align: center;
-          font-family: sans-serif;
+          margin-top: 10rem;
+          overflow: hidden;
         }
-        h1 {
-          color: navy;
+        
+        button {
+          width: 50%;
+          border: 0;
+          border-radius: 0.2rem;
+          padding: 0.3rem 1rem;
+          transition: all 100ms ease-in-out;
         }
+
+        button:hover {
+          cursor: pointer;
+          background-color: hsl(var(--clr-white) / 0.75);
+          scale: 1.1;
+        }
+
+        img {
+          width: 250px;
+        }
+
         p {
-          font-size: 18px;
+          letter-spacing: 1px;
         }
+
+        .center {
+          display: flex;
+          justify-content: center;
+        }
+        
     </style>
 </head>
 <body>
-    <h1>Thank You</h1>
-    <p>Thank you for submitting the form. Your submission has been received and is being processed.</p>
+  <main class="container flow">
+    <div class="center">
+      <img src="/assets/contact/letter1.jpg" alt="">
+    </div>
+    <h1>Thanks for submitting!</h1>
+    <p>Your message has been sent!</p>
+    <div>
+      <button onclick="window.location='index.html'">Go Home</button>
+    </div>
+  </main>
+    
 </body>
 </html>
