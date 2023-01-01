@@ -1,28 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  02 Meet your crew
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-  Pilot
-  Victor Glover
+    <!-- Link to JS -->
+    <script src="/index.js" defer></script>
 
-  Pilot on the first operational flight of the SpaceX Crew Dragon to the 
-  International Space Station. Glover is a commander in the U.S. Navy where 
-  he pilots an F/A-18.He was a crew member of Expedition 64, and served as a 
-  station systems flight engineer. 
-</body>
+    <title>Destination Page</title>
+  </head>
+
+  <body class="crew">
+
+    <a href="#main" class="skip-to-content sr-only">Skip to main</a>
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
+      <div class="logo">
+        <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
+      </div>
+
+      <!-- button -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
+
+      <!-- primary navigation -->
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+          <li >
+            <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
+          </li>
+          <li class="active">
+            <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main id="main" class="grid-container flow grid-container--crew">
+      <h1 class="numbered-title"><span aria-hidden="true">02</span> Cunoașteți echipajul
+      </h1>
+
+      <picture>
+        <source srcset="/assets/crew/image-victor-glover.webp">
+        <img src="/assets/crew/image-victor-glover.png" alt="victor glover image">
+      </picture>
+
+      <div class="dot-indicators flex">
+        <button aria-selected="false" onclick="window.location='crew.html'">
+          <span class="sr-only">comandantul</span>
+        </button>
+        <button aria-selected="false" onclick="window.location='crew-specialist.html'">
+          <span class="sr-only">specialistul in misiune</span>
+        </button>
+        <button aria-selected="true">
+          <span class="sr-only">pilotul</span>
+        </button>
+        <button aria-selected="false" onclick="window.location='crew-engineer.html'">
+          <span class="sr-only">inginerul de zbor</span>
+        </button>
+      </div>
+
+      <article class="crew-details flow">
+        <div class="flow">
+          <h2 class="fs-600 ff-bellefair uppercase">pilot</h2>
+          <p class="fs-700 ff-bellefair uppercase">victor glover</p>
+        </div>
+        
+        <p class="text-accent">
+          Pilot pe primul zbor operațional al SpaceX Crew Dragon către Stația Spațială Internațională. Glover este comandant în Marina SUA, unde pilotează un F/A-18. A fost membru al echipajului Expediției 64 și a servit ca inginer de zbor în sistemele stației.
+        </p>
+      </article>
+
+    </main>
+
+  </body>
 </html>

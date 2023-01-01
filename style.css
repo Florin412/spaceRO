@@ -730,9 +730,8 @@ body {
   }
 
   .grid-container--crew > picture {
-    scale: 1.2;
     align-self: end;
-    transform: translateX(12px);
+    grid-column: span 2;
   }
 
   .crew-details.flow {
