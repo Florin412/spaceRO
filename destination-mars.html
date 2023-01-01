@@ -1,37 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  01 Pick your destination
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-  Moon
-  Mars
-  Europa
-  Titan
+    <!-- Link to JS -->
+    <script src="/index.js" defer></script>
 
-  Mars
+    <title>Destination Page</title>
+  </head>
 
-  Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
-  the tallest planetary mountain in our solar system. It’s two and a half times 
-  the size of Everest!
+  <body class="destination">
+    <a href="#main" class="skip-to-content sr-only">Skip to main</a>
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
+      <div class="logo">
+        <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
+      </div>
 
-  Avg. distance
-  225 mil. km
+      <!-- button -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
 
-  Est. travel time
-  9 months
+      <!-- primary navigation -->
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+          <li >
+            <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
+          </li>
+          <li class="active">
+            <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main id="main" class="grid-container flow grid-container--destination">
+      <h1 class="numbered-title"><span aria-hidden="true">01</span> Alegeți destinația</h1>
+      
+      <picture>
+        <source srcset="/assets/destination/image-mars.webp">
+        <img src="/assets/destination/image-mars.png" alt="the mars">
+      </picture>
+
+      <div class="tab-list underline-indicators flex uppercase ff-barlow-cond fs-400 letter-spaceing-2">
+        <a class="text-white" href="destination.html">Lună</a>
+        <a class="active text-white" href="#">marte</a>
+        <a class="text-white" href="destination-europa.html">europa</a>
+        <a class="text-white" href="destination-titan.html">titan</a>
+      </div>
+      
+      <article class="destination-info">
+        <h2 class="ff-bellefair fs-800 uppercase">Marte</h2>
+        <p class="ff-barlow-normal fs-400 text-accent">
+          Nu uitați să vă împachetați bocancii de drumeție. Veți avea nevoie de ei pentru a aborda Olympus Mons, cel mai înalt munte planetar din sistemul nostru solar. Este de două ori și jumătate mai mare decât Everestul!
+        </p>
+
+        <div class="destination-meta flex uppercase">
+          <div>
+            <h3 class="text-accent fs-300 ff-barlow-cond letter-spaceing-3">Distanța medie</h3>
+            <p class="fs-600 ff-bellefair">225 mil. km</p>
+          </div>
+            
+          <div>
+            <h3 class="text-accent fs-300 ff-barlow-cond letter-spaceing-3">Timp de călătorie</h3>
+            <p class="fs-600 ff-bellefair">9 luni</p>
+          </div>
+        </div>
+
+      </article>
+    </main>
+
 </body>
 </html>

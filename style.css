@@ -451,6 +451,7 @@ select {
   cursor: pointer;
   border-bottom: 4px solid hsl(var(--clr-white) / 0);
   transition: 0.3s border-color ease-in-out;
+  text-decoration: none;
 }
 
 .underline-indicators .active {
@@ -484,7 +485,6 @@ select {
 /* ------------------------- */
 
 .tab-list > * {
-  background-color: transparent;
   padding-block: 0.5rem;
 }
 
