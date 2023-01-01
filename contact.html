@@ -25,11 +25,9 @@
     <!-- Link to JS -->
     <script src="/index.js" defer></script>
 
-    <title>Crew Page</title>
+    <title>Contact Page</title>
   </head>
-
-  <body class="crew">
-
+  <body class="contact">
     <a href="#main" class="skip-to-content sr-only">Skip to main</a>
     <!-- Header Section -->
     <header class="flex primary-header">
@@ -45,19 +43,19 @@
       <!-- primary navigation -->
       <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
-          <li >
+          <li>
             <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
           </li>
           <li>
             <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
           </li>
-          <li class="active">
+          <li>
             <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
           </li>
           <li>
             <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
           </li>
-          <li>
+          <li class="active">
             <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
           </li>
         </ul>
@@ -65,42 +63,43 @@
     </header>
 
     <!-- Main Section -->
-    <main id="main" class="grid-container flow grid-container--crew">
-      <h1 class="numbered-title"><span aria-hidden="true">02</span> Cunoașteți echipajul
-      </h1>
+    <main id="main" class="grid-container grid-container--contact flow">
+        <h1 class="numbered-title"><span aria-hidden="true">04</span> Intră în contact cu noi</h1>
 
-      <picture>
-        <source srcset="/assets/crew/image-douglas-hurley.webp">
-        <img src="/assets/crew/image-douglas-hurley.png" alt="commander Douglas Hurley">
-      </picture>
+        <article class="form text-accent">
+            <form action="https://formsubmit.co/a26af16d51f5ace267467322561356dd" method="POST" class="flow letter-spaceing-3">
+                <input type="hidden" name="_next" value="thanks.html">
+                <input type="hidden" name="_subject" value="New email from SPACERO!">
+                <div class="flex">
+                    <label for="firstName">Nume: </label>
+                    <input id="firstName" type="text" name="firstName" required>
+                </div>
+                
+                <div class="flex">
+                    <label for="lastName">Prenume: </label>
+                    <input id="lastName" type="text" name="LastName" required>
+                </div>
 
-      <div class="dot-indicators flex">
-        <button aria-selected="true">
-          <span class="sr-only">comandantul</span>
-        </button>
-        <button aria-selected="false" onclick="window.location='crew-specialist.html'">
-          <span class="sr-only">specialistul in misiune</span>
-        </button>
-        <button aria-selected="false" onclick="window.location='crew-pilot.html'">
-          <span class="sr-only">pilotul</span>
-        </button>
-        <button aria-selected="false" onclick="window.location='crew-engineer.html'">
-          <span class="sr-only">inginerul de zbor</span>
-        </button>
-      </div>
+                <div class="flex">
+                    <label for="email">Email: </label>
+                    <input id="email" type="email" name="email" required>
+                </div>
+                
+                <div class="flex">
+                    <label for="tel">Telefon: </label>
+                    <input id="tel" type="tel" name="telefon" required>
+                </div>
 
-      <article class="crew-details flow">
-        <div class="flow">
-          <h2 class="fs-600 ff-bellefair uppercase">Comandant</h2>
-          <p class="fs-700 ff-bellefair uppercase">Douglas Hurley</p>
-        </div>
-        
-        <p class="text-accent">
-          Douglas Gerald Hurley este un inginer american, fost pilot al Marinei și fost astronaut NASA. S-a lansat în spațiu pentru a treia oară în calitate de comandant al Echipei Dragon Demo-2.
-        </p>
-      </article>
-
+                <div class="flex">
+                    <label for="message">Mesajul tău: </label>
+                    <textarea id="message" name="message" id="mesdage" cols="23" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Trimite</button>
+                
+           </form>
+        </article>
+      
     </main>
-
   </body>
 </html>
