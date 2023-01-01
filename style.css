@@ -499,6 +499,32 @@ select {
   padding-top: 2.5rem;
   margin-top: 2.5rem;
 }
+/* ------------------------- */
+/* Contact page              */
+/* ------------------------- */
+.form input, textarea {
+  resize: none;
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0.35rem 1rem;
+  outline: 0;
+  background-color: hsl(var(--clr-white) / 0.9);
+  letter-spacing: 1px;
+}
+
+.form button[type="submit"] {
+  margin-top: 2rem;
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0.4rem 3rem;
+  background-color: hsl(var(--clr-accent) / 0.5);
+  color: hsl(var(--clr-white) / 1);
+  transition: scale 200ms ease-in-out;
+}
+
+.form button[type="submit"]:hover {
+  scale: 1.2;
+}
 
 /* ------------------------- */
 /* Crew page                 */
@@ -563,6 +589,7 @@ body {
     background-image: url(/assets/crew/background-crew-desktop.jpg);
   }
 }
+
 /* ------------------------- */
 /* Layout                    */
 /* ------------------------- */
@@ -642,6 +669,28 @@ body {
   grid-area: crew-details;
 }
 
+/* contact layout */
+
+.grid-container--contact {
+  grid-template-areas:
+    "title"
+    "form";
+}
+
+.grid-container--contact .form {
+  grid-area: form;
+}
+
+.grid-container--contact .flex {
+  flex-direction: column;
+  --gap: 0.2rem;
+  justify-content: space-between;
+}
+
+.grid-container--contact button[type="submit"] {
+  width: 100%;
+}
+
 /* tablet */
 @media (min-width: 47.6rem) {
   /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
@@ -692,6 +741,10 @@ body {
       "dots"
       "image";
   }
+
+  .grid-container--contact .flex {
+    flex-direction: row;
+  }
 }
 
 /* desktop */
@@ -736,5 +789,21 @@ body {
 
   .crew-details.flow {
     --flow-space: .7rem;
+  }
+
+  .grid-container--contact {
+    grid-template-columns: minmax(2rem, 1fr) repeat(1, minmax(auto, 40rem)) minmax(2rem, 1fr);
+    grid-template-areas:
+      ". title ."
+      ". form ."
+  }
+
+  .grid-container--contact .flex {
+    --gap: 3rem;
+  }
+
+  .grid-container--contact .form {
+    align-self: start;
+    justify-self: start;
   }
 }
