@@ -503,7 +503,8 @@ select {
     flex-direction: row;
   }
 
-  .number-list > a {
+  .number-list a {
+    font-size: 20px;
     padding: 0 1.3rem;
   }
 }
@@ -864,6 +865,7 @@ body {
   }
 
   .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 20rem) minmax(1rem, 1fr);
     justify-items: start;
     align-content: start;
     text-align: left;
@@ -878,7 +880,6 @@ body {
   }
 
   .grid-container--crew > picture {
-    align-self: end;
     grid-column: span 2;
   }
 
