@@ -1,32 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  03 Space launch 101
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-  1
-  2
-  3
+    <!-- Link to JS -->
+    <script src="/index.js" defer></script>
 
-  The terminology...
-  Spaceport
+    <title>Home Page</title>
+  </head>
+  <body class="technology">
+    <a href="#main" class="skip-to-content sr-only">Skip to main</a>
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
+      <div class="logo">
+        <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
+      </div>
 
-  A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
-  by analogy to the seaport for ships or airport for aircraft. Based in the 
-  famous Cape Canaveral, our spaceport is ideally situated to take advantage 
-  of the Earth’s rotation for launch.
+      <!-- button -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
+
+      <!-- primary navigation -->
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+          <li>
+            <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
+          </li>
+          <li class="active">
+            <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="grid-container grid-container--technology flow">
+
+      <h1 class="numbered-title"><span aria-hidden="true">03</span> Lansarea spațială 101</h1>
+
+      <ul class="number-list flex">
+        <li aria-selected="false"><a href="/technology.html">1</a></li>
+        <li aria-selected="true"><a href="#">2</a></li>
+        <li aria-selected="false"><a href="/technology-capsule.html">3</a></li>
+      </ul> 
+
+      <div class="tech-info flow">
+        <h2 class="ff-bellefair fs-700 uppercase">Port spatial</h2>
+        <p class="text-accent">
+          Cosmodromul este un loc pentru lansarea (sau primirea) navelor spațiale, prin analogie cu portul maritim pentru nave sau aeroportul pentru aeronave. Cu sediul în faimosul Cape Canaveral, portul nostru spațial este situat ideal pentru a profita de rotația Pământului pentru lansare.
+        </p>
+      </div>
+    
+      <div class="image">
+        <img src="/assets/technology/image-spaceport-portrait.jpg" alt="space port">
+        <img src="/assets/technology/image-spaceport-landscape.jpg" alt="space port">
+      </div>
+
+    </main>
+
 </body>
 </html>

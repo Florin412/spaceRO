@@ -464,14 +464,15 @@ select {
 }
 
 .dot-indicators button {
-  padding: .7rem 0;
+  padding: 0.7rem 0;
   border-radius: 50%;
   border: none;
   aspect-ratio: 1;
   background-color: hsl(var(--clr-white) / 0.3);
 }
 
-.dot-indicators button[aria-selected="false"]:hover {
+.dot-indicators button[aria-selected="false"]:hover,
+.dot-indicators button[aria-selected="false"]:focus {
   cursor: pointer;
   background-color: hsl(var(--clr-white) / 0.75);
 }
@@ -480,6 +481,46 @@ select {
   background-color: hsl(var(--clr-white) / 1);
 }
 
+.number-list {
+ list-style: none;
+}
+
+.number-list  a {
+  padding: 0 2rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  display: flex;
+  font-size: var(--fs-500);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(var(--clr-white) / 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (width <= 65em) {
+  .number-list {
+    flex-direction: row;
+  }
+
+  .number-list a {
+    font-size: 20px;
+    padding: 0 1.3rem;
+  }
+}
+
+.number-list > li:hover,
+.number-list > li:focus {
+  cursor: pointer;
+  border-color: hsl(var(--clr-white) / 0.9);
+}
+
+.number-list > [aria-selected="true"] {
+  border-color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  border-radius: 50%;
+}
 /* ------------------------- */
 /* Destination page          */
 /* ------------------------- */
@@ -502,7 +543,8 @@ select {
 /* ------------------------- */
 /* Contact page              */
 /* ------------------------- */
-.form input, textarea {
+.form input,
+textarea {
   resize: none;
   border: 0;
   border-radius: 0.2rem;
@@ -522,7 +564,8 @@ select {
   transition: scale 200ms ease-in-out;
 }
 
-.form button[type="submit"]:hover {
+.form button[type="submit"]:hover,
+.form button[type="submit"]:focus {
   scale: 1.2;
 }
 
@@ -530,7 +573,7 @@ select {
 /* Crew page                 */
 /* ------------------------- */
 
-.crew-details  h2 {
+.crew-details h2 {
   color: hsl(var(--clr-white) / 0.5);
 }
 
@@ -589,6 +632,23 @@ body {
     background-image: url(/assets/crew/background-crew-desktop.jpg);
   }
 }
+
+.technology {
+  background-image: url(/assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .technology {
+    background-position: center center;
+    background-image: url(/assets/technology/background-technology-tablet.jpg);
+  }
+}
+@media (min-width: 47.6rem) {
+  .technology {
+    background-image: url(/assets/technology/background-technology-desktop.jpg);
+  }
+}
+
 
 /* ------------------------- */
 /* Layout                    */
@@ -669,6 +729,34 @@ body {
   grid-area: crew-details;
 }
 
+/* technology layout */
+.grid-container--technology {
+  overflow: hidden;
+  grid-template-areas:
+    "title"
+    "image"
+    "number-list"
+    "tech-info";
+}
+
+.grid-container--technology .image :first-child {
+  display: none;
+}
+
+.grid-container--technology .image {
+  grid-area: image;
+  
+}
+
+.grid-container--technology .number-list {
+  grid-area: number-list;
+  padding: 0;
+}
+
+.grid-container--technology .tech-info {
+  grid-area: tech-info;
+}
+
 /* contact layout */
 
 .grid-container--contact {
@@ -693,8 +781,7 @@ body {
 
 /* tablet */
 @media (min-width: 47.6rem) {
-  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
-  /* those columns will apear just on desktop */
+
   .grid-container--home {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
@@ -750,7 +837,7 @@ body {
 /* desktop */
 @media (min-width: 65em) {
   .grid-container--destination {
-    justify-items: start;
+    justify-items: center;
     align-content: start;
     text-align: left;
     grid-template-areas:
@@ -768,7 +855,16 @@ body {
     max-width: 90%;
   }
 
+  .grid-container--destination > .tab-list {
+    justify-self: start;
+  }
+
+  .grid-container--destination > .destination-info {
+    justify-self: start;
+  }
+
   .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 20rem) minmax(1rem, 1fr);
     justify-items: start;
     align-content: start;
     text-align: left;
@@ -783,19 +879,49 @@ body {
   }
 
   .grid-container--crew > picture {
-    align-self: end;
     grid-column: span 2;
   }
 
   .crew-details.flow {
-    --flow-space: .7rem;
+    --flow-space: 0.7rem;
+  }
+
+  .grid-container--technology {
+    grid-template-columns:
+      minmax(2rem, 1fr)
+      minmax(auto, 6.5rem)
+      repeat(2, minmax(auto, 25rem))
+      minmax(2rem, 1fr);
+    grid-template-areas:
+      ". title title title ."
+      ". number-list tech-info  image .";
+    text-align: left;
+    column-gap: 5rem;
+    margin-bottom: max(5rem, 15vh);
+  }
+
+  .grid-container--technology .image :first-child {
+    display: block;
+   
+  }
+
+  .grid-container--technology .image :last-child {
+    display: none;
+  }
+  .grid-container--technology .image {
+    grid-column: span 2;
+    justify-self: start;
+
   }
 
   .grid-container--contact {
-    grid-template-columns: minmax(2rem, 1fr) repeat(1, minmax(auto, 40rem)) minmax(2rem, 1fr);
+    grid-template-columns: minmax(2rem, 1fr) repeat(1, minmax(auto, 40rem)) minmax(
+        2rem,
+        1fr
+      );
     grid-template-areas:
       ". title ."
-      ". form ."
+      ". form .";
   }
 
   .grid-container--contact .flex {
