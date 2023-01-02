@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Link to JS -->
+    <script src="/index.js" defer></script>
+
+    <title>Home Page</title>
+  </head>
+  <body class="technology">
+    <a href="#main" class="skip-to-content sr-only">Skip to main</a>
+    <!-- Header Section -->
+    <header class="flex primary-header">
+      <!-- logo -->
+      <div class="logo">
+        <img src="/assets/shared/logo.png" alt="spacero logo" />
+        <img src="/assets/shared/logo-mobile.svg" alt="logo for mobile">
+      </div>
+
+      <!-- button -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
+
+      <!-- primary navigation -->
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators uppercase flex ff-barlow-cond">
+          <li>
+            <a class="text-white letter-spaceing-2" href="index.html"><span aria-hidden="true">00</span>acasă</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="destination.html"><span aria-hidden="true">01</span>destinații</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="crew.html"><span aria-hidden="true">02</span>echipaj</a>
+          </li>
+          <li class="active">
+            <a class="text-white letter-spaceing-2" href="technology.html"><span aria-hidden="true">03</span>tehnologii</a>
+          </li>
+          <li>
+            <a class="text-white letter-spaceing-2" href="contact.html"><span aria-hidden="true">04</span>contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="grid-container grid-container--technology flow">
+
+      <h1 class="numbered-title"><span aria-hidden="true">03</span> Lansarea spațială 101</h1>
+
+      <ul class="number-list flex">
+        <li aria-selected="true">1</li>
+        <li aria-selected="false">2</li>
+        <li aria-selected="false">3</li>
+      </ul> 
+
+      <div class="tech-info flow">
+        <h2 class="ff-bellefair fs-700 uppercase">Vehicul de lansare</h2>
+        <p class="text-accent">
+          Racheta este un vehicul de lansare folosit pentru a transporta o sarcină utilă de la suprafața Pământului în spațiu, pe orbita Pământului sau dincolo de acesta. Racheta noastră purtătoare WEB-X este cea mai puternică în funcțiune. Având o înălțime de 150 de metri, este o priveliște destul de uimitoare pe rampa de lansare!
+        </p>
+      </div>
+    
+      <div class="image">
+        <img src="/assets/technology/image-launch-vehicle-portrait.jpg" alt="laungh vehicle">
+        <img src="/assets/technology/image-launch-vehicle-landscape.jpg" alt="laungh vehicle">
+      </div>
+
+    </main>
+
+</body>
+</html>
