@@ -781,8 +781,7 @@ body {
 
 /* tablet */
 @media (min-width: 47.6rem) {
-  /* the site will have 4 columns: 2 for content(fix width), 2 for spaceing(relativ width) */
-  /* those columns will apear just on desktop */
+
   .grid-container--home {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
