@@ -482,10 +482,10 @@ select {
 }
 
 .number-list {
- list-style: none;
+  list-style: none;
 }
 
-.number-list  a {
+.number-list a {
   padding: 0 2rem;
   border-radius: 50%;
   aspect-ratio: 1;
@@ -509,8 +509,8 @@ select {
   }
 }
 
-.number-list > li:hover,
-.number-list > li:focus {
+.number-list > * :hover,
+.number-list > * :focus {
   cursor: pointer;
   border-color: hsl(var(--clr-white) / 0.9);
 }
@@ -649,7 +649,6 @@ body {
   }
 }
 
-
 /* ------------------------- */
 /* Layout                    */
 /* ------------------------- */
@@ -745,7 +744,6 @@ body {
 
 .grid-container--technology .image {
   grid-area: image;
-  
 }
 
 .grid-container--technology .number-list {
@@ -781,7 +779,6 @@ body {
 
 /* tablet */
 @media (min-width: 47.6rem) {
-
   .grid-container--home {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
@@ -864,7 +861,10 @@ body {
   }
 
   .grid-container--crew {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 20rem) minmax(1rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 20rem) minmax(
+        1rem,
+        1fr
+      );
     justify-items: start;
     align-content: start;
     text-align: left;
@@ -902,7 +902,6 @@ body {
 
   .grid-container--technology .image :first-child {
     display: block;
-   
   }
 
   .grid-container--technology .image :last-child {
@@ -911,7 +910,6 @@ body {
   .grid-container--technology .image {
     grid-column: span 2;
     justify-self: start;
-
   }
 
   .grid-container--contact {
